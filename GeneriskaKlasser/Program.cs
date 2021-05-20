@@ -79,7 +79,43 @@ namespace GeneriskaKlasser
             Console.WriteLine("You will have to enter some information for this to work.");
             Console.WriteLine("Press ENTER to begin...");
             Console.ReadLine();
+            Console.Clear();
 
+            Queue<string> statsQueue = new Queue<string>();
+            int argumentsEntered = 0;
+
+            while(argumentsEntered != 3){
+                if(argumentsEntered == 0){
+                    Console.WriteLine("Enter your name");
+                    string name = Console.ReadLine();
+
+                    statsQueue.Enqueue(name);
+                }
+
+                if(argumentsEntered == 1){
+                    Console.WriteLine("Enter your age");
+                    string age = Console.ReadLine();
+
+                    statsQueue.Enqueue(age);
+                }
+
+                if(argumentsEntered == 2){
+                    Console.WriteLine("Enter your favorite video game title");
+                    string game = Console.ReadLine();
+
+                    statsQueue.Enqueue(game);
+                }
+
+                argumentsEntered++;
+                Console.Clear();
+            }
+
+            Console.WriteLine("Press ENTER to view your stats.");
+            Console.ReadLine();
+            Console.Clear();
+
+            Console.WriteLine("You did pretty good for someone with the name " + statsQueue.Dequeue() + ", thats " + statsQueue.Dequeue() + " years old and likes to play " + statsQueue.Dequeue() + "...");
+            Console.ReadLine();
         }
     }
 }
